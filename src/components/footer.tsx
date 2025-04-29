@@ -88,16 +88,23 @@ const Footer: React.FC = () => {
         className="w-8 h-8"
       />
     </a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+      <img
+        src="https://img.freepik.com/free-psd/tiktok-logo-icon-psd-editable_314999-3664.jpg?semt=ais_hybrid&w=740"
+        alt="TikTok"
+        className="w-8 h-8"
+      />
+    </a>
     <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/e/e8/X_logo_2023.svg"
+        src="https://i.pinimg.com/736x/72/52/a7/7252a7a2b8fa3ab9bd2294b0edfe96ba.jpg"
         alt="X (Twitter)"
         className="w-8 h-8"
       />
     </a>
     <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/8/80/LinkedIn_logo_2023.svg"
+        src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
         alt="LinkedIn"
         className="w-8 h-8"
       />

@@ -1,10 +1,15 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const BannerCard: React.FC = () => {
   const [rating, setRating] = useState(0); // Track selected rating
   const [reviewText, setReviewText] = useState(''); // Track the review text
+  const [descShown, setDescShown] = useState(true)
+  const reviewRef = useRef<HTMLDivElement>(null); // Reference to scroll to the review section
 
+  const handleDescShow = () => {
+    setDescShown(!descShown)
+  }
   // Handle star click to set rating
   const handleStarClick = (rating: number) => {
     setRating(rating);
@@ -22,6 +27,13 @@ const BannerCard: React.FC = () => {
     // Here you would send the review and rating to a backend or save it locally
     setReviewText('');
     setRating(0); // Reset after submission
+  };
+
+  // Scroll to the review section when the review button is clicked
+  const scrollToReviewSection = () => {
+    if (reviewRef.current) {
+      reviewRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -63,7 +75,7 @@ const BannerCard: React.FC = () => {
             Diselenggarakan oleh SUPERMUSIC
           </p>
 
-          {/* Card Beli Button */}
+          {/* Card Review Button */}
           <div style={{
             padding: '16px',
             border: '1px solid #ccc',
@@ -74,17 +86,20 @@ const BannerCard: React.FC = () => {
             minWidth: '250px',
             marginTop: '16px',
           }}>
-            <button style={{
-              padding: '12px 24px',
-              backgroundColor: '#0070f3',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-              width: '100%',
-            }}>
-              Beli Tiket
+            <button
+              onClick={scrollToReviewSection}
+              style={{
+                padding: '12px 24px',
+                backgroundColor: '#0070f3',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                width: '100%',
+              }}
+            >
+              Review Event
             </button>
           </div>
         </div>
@@ -92,7 +107,69 @@ const BannerCard: React.FC = () => {
       </div>
 
       {/* Deskripsi */}
-      <div style={{ padding: '16px', margin: '0 auto', textAlign: 'left', width: '100%' }}>
+      {/* Event Review and Rating */}
+      <div ref={reviewRef} style={{ marginTop: '32px' }}>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+            Review dan Rating
+          </h3>
+
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+            <span style={{ marginRight: '8px' }}>Rating:</span>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <span
+                key={star}
+                style={{
+                  cursor: 'pointer',
+                  fontSize: '20px',
+                  color: star <= rating ? '#FFD700' : '#ccc',
+                }}
+                onClick={() => handleStarClick(star)}
+              >
+                ★
+              </span>
+            ))}
+          </div>
+
+          <textarea
+  value={reviewText}
+  onChange={handleReviewChange}
+  placeholder="Tulis review Anda..."
+  style={{
+    width: '200%',  // Increased width to make it twice as wide
+    padding: '16px',  // Increased padding for more space inside the textarea
+    borderRadius: '6px',
+    border: '1px solid #ccc',
+    marginBottom: '12px',
+    minHeight: '200px', // Increased minimum height for a larger text area
+    fontSize: '1rem',   // Larger font size for better readability
+    marginLeft: '-50%', // Adjust to center the textarea by shifting it left
+  }}
+/>
+
+
+<button
+  onClick={handleReviewSubmit}
+  style={{
+    padding: '16px 32px', // Increased padding for more spacious button
+    backgroundColor: '#0070f3',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '8px', // Slightly more rounded corners
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    fontSize: '1.1rem', // Larger font size for better visibility
+    width: '100%',
+    transition: 'background-color 0.3s', // Smooth background color transition on hover
+  }}
+  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#005bb5'} // Darker color on hover
+  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0070f3'} // Original color when mouse leaves
+>
+  Kirim Review
+</button>
+
+        </div>
+      <div className="border border-black p-1" onClick={handleDescShow}>Lihat deskripsi</div>
+      <div className={`${descShown?'':'hidden'}`}  style={{ padding: '16px', margin: '0 auto', textAlign: 'left', width: '100%' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
           SUPERMUSIC INTIMATE SESSIONS 2025
         </h2>
@@ -115,70 +192,20 @@ const BannerCard: React.FC = () => {
           <li>8.Dilarang melakukan perbuatan dan juga atau pun membawa benda yang melanggar hukum/ peraturan yang berlaku pada saat acara.</li>
           <li>9.Dilarang Membawa:
             <ul>
-              <li>Obat Obatan Terlarang</li>
-              <li>Makanan dan Minuman dari luar</li>
-              <li>Senjata Tajam</li>
-              <li>Senjata Api/ Peledak</li>
-              <li>Video Kamera Profesional</li>
-              <li>Laser Pen</li>
-              <li>E Cigarette dan Heat Not Burn Cigarette</li>
-              <li>Produk Tembakau Dengan Kemasan/ Segel Terbuka</li>
+              <li>-Obat Obatan Terlarang</li>
+              <li>-Makanan dan Minuman dari luar</li>
+              <li>-Senjata Tajam</li>
+              <li>-Senjata Api/ Peledak</li>
+              <li>-Video Kamera Profesional</li>
+              <li>-Laser Pen</li>
+              <li>-E Cigarette dan Heat Not Burn Cigarette</li>
+              <li>-Produk Tembakau Dengan Kemasan/ Segel Terbuka</li>
             </ul>
           </li>
         </ol>
 
-        {/* Event Review and Rating */}
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-          Review dan Rating
-        </h3>
-
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
-          <span style={{ marginRight: '8px' }}>Rating:</span>
-          {[1, 2, 3, 4, 5].map((star) => (
-            <span
-              key={star}
-              style={{
-                cursor: 'pointer',
-                fontSize: '20px',
-                color: star <= rating ? '#FFD700' : '#ccc',
-              }}
-              onClick={() => handleStarClick(star)}
-            >
-              ★
-            </span>
-          ))}
-        </div>
-
-        <textarea
-          value={reviewText}
-          onChange={handleReviewChange}
-          placeholder="Tulis review Anda..."
-          style={{
-            width: '100%',
-            padding: '12px',
-            borderRadius: '6px',
-            border: '1px solid #ccc',
-            marginBottom: '12px',
-            minHeight: '80px',
-          }}
-        />
-
-        <button
-          onClick={handleReviewSubmit}
-          style={{
-            padding: '12px 24px',
-            backgroundColor: '#0070f3',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            width: '100%',
-          }}
-        >
-          Kirim Review
-        </button>
       </div>
+        
     </div>
   );
 };
