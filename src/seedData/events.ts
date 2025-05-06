@@ -821,6 +821,117 @@ Temukan dan praktekkan bagaimana strategi serta teknik memimpin yang efektif unt
     },
 
     {
-        
+        creatorId: "",
+        eventName: "Putri 5K – Blessing Nias Run",
+        eventCategoryId: "",
+        eventTopicId: "",
+        organizerName: "PDNI (Perkumpulan Doktor Nias Indonesia)",
+        organizerLogoImgUrl: "https://assets.loket.com/neo/production/images/organization/20250306082650_67c8f9dae1255.png",
+        eventDate: "2025-05-04", // Event date
+        eventTime: "06:00 - 09:00 WIB",
+        eventLocation: "Alun-Alun Kota Gunungsitoli, Sumatera Utara",
+        eventDesc: `Bergabunglah dalam kompetisi **"PUTRI 5K - BLESSING NIAS RUN"** dan buktikan semangatmu! 
+      
+      **Benefit:**
+      ✔️ Baju Eksklusif  
+      ✔️ Sertifikat (Finisher)  
+      ✔️ Medali (Finisher)  
+      
+      **Hadiah untuk PUTRI 5K - BLESSING NIAS RUN**  
+      ✔️ Juara 1 - 1 Unit Laptop  
+      ✔️ Juara 2 - 1 Unit Handphone  
+      ✔️ Juara 3 - 1 Unit Sepeda`,
+        ticketType: "ONLINE",
+        ticketName: "Putri 5K - Blessing Nias Run Ticket",
+        ticketQty: 1000,
+        ticketPrice: 150000, // Example price (adjust as necessary)
+        ticketDesc: "Ticket for Putri 5K - Blessing Nias Run",
+        ticketTermsAndCondition: `1. Pendaftaran hanya dapat dilakukan melalui situs resmi loket.com
+      2. Setiap peserta harus membeli Tiket PUTRI 5K - BLESSING NIAS RUN untuk mengikuti acara.
+      3. Peserta terbuka untuk Putri/Wanita, dengan usia minimal 15 tahun. 
+      4. Pembayaran harus dilakukan secara penuh pada saat pendaftaran di loket.com.
+      5. Tiket yang sudah dibeli tidak dapat dibatalkan atau dipindah tangankan.
+      6. Sertifikat penyelesaian lomba akan diberikan kepada peserta yang berhasil menyelesaikan lomba PUTRI 5K - BLESSING NIAS RUN.
+      7. Acara akan tetap dilaksanakan meski cuaca tidak mendukung, namun penyelenggara berhak untuk menunda atau membatalkan acara jika kondisi cuaca membahayakan keselamatan peserta.
+      8. Peserta diharapkan untuk mengikuti petunjuk dari panitia dan memastikan tidak melakukan tindakan yang merugikan diri sendiri atau orang lain.`,
+        ticketStartDate: "2025-03-01", // Ticket sale start date (adjust as needed)
+        ticketEndDate: "2025-05-03", // Ticket sale end date (adjust as needed)
+        eventCPName: "Customer Service - PDNI",
+        eventCPEmail: "humaskpi.polban@gmail.com", // Adjust email if needed
+        countryPhoneId: "+62-821-1704-7522", // Adjust phone number
+        ticketDataFormType: "",
+        maxTicketPerTransaction: 1
+    },
+
+    {
+        creatorId: "",
+        eventName: "Kailash MX GTX Open 2025",
+        eventCategoryId: "",
+        eventTopicId: "",
+        organizerName: "Kailash Speed",
+        organizerLogoImgUrl: "https://assets.loket.com/neo/production/images/organization/20250306082650_67c8f9dae1255.png", // Adjust logo if necessary
+        eventDate: "2025-05-03 to 2025-05-04", // Event date range
+        eventTime: "08:00 - 18:00 WIB",
+        eventLocation: "Sirkuit Siliwangi Motocross GTX DKracing, Jawa Barat",
+        eventDesc: `**Kailash MX & GTX Open 2025** merupakan salah satu komitmen Kailash Speed yang dahulunya bernama ORYZA SPEED guna menumbuhkan kecintaan anak-anak Indonesia terhadap grasstrack. Perkembangan dunia balap grasstrack saat ini berkembang sangat pesat dan ini perlu mendapatkan perhatian semua pihak. Oleh karena itu sangatlah penting untuk mengadakan perlombaan secara berkala dan terukur.
+      
+      Dengan diadakannya balapan ini diharapkan generasi muda saat ini dapat menjadi ajang bagi pembalap mengasah kemampuannya dalam dunia balap grasstrack. Para pembalap akan semakin terasah keterampilannya dengan adanya balapan yang bagus dan terstruktur. Kami mengajak pihak-pihak terkait untuk ikut serta dalam mensukseskan dan menjadi pendukung utama acara tersebut serta kegiatan-kegiatan lainnya.`,
+        ticketType: "ONLINE",
+        ticketName: "Kailash MX GTX Open 2025 Ticket",
+        ticketQty: 500, // Adjust quantity as necessary
+        ticketPrice: 100000, // Example price (adjust as necessary)
+        ticketDesc: "Ticket for Kailash MX GTX Open 2025",
+        ticketTermsAndCondition: `1. Penonton wajib memiliki tiket resmi yang dikeluarkan oleh panitia atau mitra resmi.
+      2. Tiket yang sudah dibeli tidak dapat dikembalikan (non-refundable) kecuali acara dibatalkan oleh panitia.
+      3. Anak-anak di bawah 10 tahun wajib didampingi orang tua/wali.
+      4. Dilarang membawa senjata tajam, senjata api, bahan peledak, atau barang berbahaya lainnya.
+      5. Penonton wajib mengikuti arahan dari petugas keamanan dan panitia selama acara berlangsung.
+      6. Dilarang membawa atau mengonsumsi minuman beralkohol dan narkoba di area acara.
+      7. Penonton diharapkan menjaga kebersihan dan ketertiban selama acara berlangsung.`,
+        ticketStartDate: "2025-03-01", // Ticket sale start date (adjust as needed)
+        ticketEndDate: "2025-05-02", // Ticket sale end date (adjust as needed)
+        eventCPName: "Customer Service - Kailash Speed",
+        eventCPEmail: "info@kailashspeed.com", // Adjust email if needed
+        countryPhoneId: "+62-81234567890", // Adjust phone number
+        ticketDataFormType: "",
+        maxTicketPerTransaction: 1
+    },
+
+    {
+        creatorId: "",
+  eventName: "Purwakarta Music Fest & Bazar Expo 2025",
+  eventCategoryId: "",
+  eventTopicId: "",
+  organizerName: "Purwakarta Music Fest & Bazar Expo",
+  organizerLogoImgUrl: "https://assets.loket.com/neo/production/images/organization/20250405235036_67f15f5c96501.png", 
+  eventDate: "2025-05-04", 
+  eventTime: "09:00 - 23:30 WIB",
+  eventLocation: "Angkringan Mang Skut, Jawa Barat",
+  eventDesc: `Bersiaplah jadi bagian dari sejarah musik Purwakarta! 
+Purwakarta Music Fest hadir perdana dengan semangat membakar panggung dari band-band lokal terbaik dan UMKM kreatif dari seluruh penjuru kota!
+
+Nikmati penampilan band lokal Purwakarta & bintang tamu spesial, area bazar UMKM dan kuliner khas, aktivasi seru, photobooth, dan komunitas, serta suasana festival musik yang belum pernah ada sebelumnya!`,
+  ticketType: "ONLINE",
+  ticketName: "Purwakarta Music Fest & Bazar Expo 2025 Ticket",
+  ticketQty: 1000, 
+  ticketPrice: 25000, 
+  ticketDesc: "Ticket for Purwakarta Music Fest & Bazar Expo 2025",
+  ticketTermsAndCondition: `1. Pengunjung wajib menunjukkan tiket masuk (jika berbayar) dalam bentuk fisik atau digital.
+2. Tiket hanya berlaku untuk satu orang dan satu kali masuk.
+3. Tiket yang sudah dibeli tidak dapat dikembalikan atau ditukar.
+4. Pengunjung diminta membawa identitas diri (KTP/SIM/pelajar) sebagai verifikasi jika diperlukan.
+5. Anak-anak di bawah usia 12 tahun harus didampingi oleh orang tua atau wali.
+6. Dilarang membawa senjata tajam, senjata api, narkotika, alkohol, atau benda berbahaya lainnya.
+7. Panitia berhak memeriksa tas atau barang bawaan pengunjung.
+8. Pengunjung wajib mengenakan pakaian sopan dan tidak mengandung unsur SARA atau pornografi.
+9. Dilarang membuat keributan, melakukan tindakan kekerasan, atau provokasi.
+10. Panitia berhak mengambil dokumentasi selama acara berlangsung dan menggunakannya untuk keperluan promosi.`,
+  ticketStartDate: "2025-03-01", 
+  ticketEndDate: "2025-05-03", 
+  eventCPName: "Customer Service - Purwakarta Music Fest & Bazar Expo",
+  eventCPEmail: "info@purwakartamusicfest.com", 
+  countryPhoneId: "+62-81234567890", 
+  ticketDataFormType: "",
+  maxTicketPerTransaction: 1
     }
 ]

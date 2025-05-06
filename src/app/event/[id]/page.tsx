@@ -2,41 +2,31 @@
 import React, { useState } from 'react';
 
 const BannerCard: React.FC = () => {
-  const [rating, setRating] = useState(0); // Track selected rating
-  const [reviewText, setReviewText] = useState(''); // Track the review text
+  const [isDescriptionVisible, setIsDescriptionVisible] = useState(true); // Track which content is visible
+  const [quantity, setQuantity] = useState(0); // Track ticket quantity
+  const ticketPrice = 100000; // Price per ticket in IDR
 
-  // Handle star click to set rating
-  const handleStarClick = (rating: number) => {
-    setRating(rating);
-  };
+  // Handle the increment and decrement of ticket quantity
+  const handleIncrease = () => setQuantity(quantity + 1);
+  const handleDecrease = () => setQuantity(quantity > 0 ? quantity - 1 : 0);
 
-  // Handle review text change
-  const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setReviewText(e.target.value);
-  };
+  // Calculate the total price based on the quantity
+  const totalPrice = quantity * ticketPrice;
 
-  // Handle review submission (for now, we just log the review)
-  const handleReviewSubmit = () => {
-    console.log('Review submitted:', reviewText);
-    console.log('Rating:', rating);
-    // Here you would send the review and rating to a backend or save it locally
-    setReviewText('');
-    setRating(0); // Reset after submission
+  // Toggle between Deskripsi and Tiket
+  const toggleContent = () => {
+    setIsDescriptionVisible(!isDescriptionVisible);
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', maxWidth: '1300px', margin: '0 auto' }}>
-      {/* Gambar dan Card Penyelenggara */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '20px', padding: '16px', maxWidth: '1300px', margin: '0 auto' }}>
-
-        {/* Gambar */}
+    <div style={{ maxWidth: '1300px', margin: '0 auto', padding: '16px' }}>
+      {/* Event Banner Image */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '20px' }}>
         <img
-          src="https://assets.loket.com/neo/production/images/banner/20250419124210_680337b2dfe4f.jpg"
-          alt="Loket Banner"
+          src="https://assets.loket.com/neo/production/images/banner/20250429133940_6810742c07c7f.jpg"
+          alt="Event Banner"
           style={{ width: '800px', height: 'auto', borderRadius: '8px', flexShrink: 0 }}
         />
-
-        {/* Card Penyelenggara */}
         <div style={{
           padding: '16px',
           border: '1px solid #ccc',
@@ -47,33 +37,148 @@ const BannerCard: React.FC = () => {
           minWidth: '250px',
           marginTop: '16px',
         }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-            SUPERMUSIC INTIMATE SESSIONS 2025 - SBY
-          </h2>
-          <p style={{ margin: '4px 0' }}>
-            <span>📅</span> 25 Apr 2025
-          </p>
-          <p style={{ margin: '4px 0' }}>
-            <span>🕓</span> 16:00 - 22:00 WIB
-          </p>
-          <p style={{ margin: '4px 0' }}>
-            <span>📍</span> HEDON ESTATE, Jawa Timur
-          </p>
-          <p style={{ marginTop: '8px', fontStyle: 'italic' }}>
-            Diselenggarakan oleh SUPERMUSIC
-          </p>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>KOPLO PARTY MADNESS WITH FEEL KOPLO</h2>
+          
+          {/* Ticket Redemption Terms & Conditions below the event title */}
+          <div style={{ marginTop: '10px', fontSize: '0.9rem', color: '#555' }}>
+            <h4 style={{ fontWeight: 'bold' }}>Ticket Redemption Terms & Conditions</h4>
+            <p>
+              <strong>Ticket Validity:</strong><br />
+              • Each ticket admits one (1) person only.
+            </p>
+          </div>
 
-          {/* Card Beli Button */}
+          <p><strong>📅</strong> 02 May 2025</p>
+          <p><strong>🕓</strong> 20:00 WIB</p>
+          <p><strong>📍</strong> Dewa Sport & Bar, Carstensz Mall - Basement Floor</p>
+          <p style={{ marginTop: '8px', fontStyle: 'italic' }}>Diselenggarakan oleh: Annisa Zahara</p>
+        </div>
+      </div>
+
+      {/* Toggle Buttons */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-around',
+        marginTop: '5px', // Reduced margin to bring buttons even closer
+        marginBottom: '5px', // Reduced margin to bring buttons even closer
+      }}>
+        <button
+          onClick={toggleContent}
+          style={{
+            backgroundColor: isDescriptionVisible ? '#0070f3' : '#fff',
+            color: isDescriptionVisible ? '#fff' : '#0070f3',
+            padding: '12px 24px',
+            border: '1px solid #0070f3',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+          }}
+        >
+          Deskripsi
+        </button>
+        <button
+          onClick={toggleContent}
+          style={{
+            backgroundColor: !isDescriptionVisible ? '#0070f3' : '#fff',
+            color: !isDescriptionVisible ? '#fff' : '#0070f3',
+            padding: '12px 24px',
+            border: '1px solid #0070f3',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+          }}
+        >
+          Tiket
+        </button>
+      </div>
+
+      {/* Deskripsi or Tiket Content */}
+      {isDescriptionVisible ? (
+        <div style={{ padding: '16px', textAlign: 'left' }}>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Deskripsi Event</h2>
+          <p>
+            Get ready to shake the night away! Feel Koplo is bringing the ultimate party vibes to Dewa Sport & Bar — beats, energy, and pure madness await. See you on the dancefloor!
+          </p>
+        </div>
+      ) : (
+        <div style={{
+          maxWidth: '600px', 
+          margin: '20px auto', 
+          padding: '20px',
+          border: '2px solid #0070f3',
+          borderRadius: '12px',
+          backgroundColor: '#f0f9ff',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
           <div style={{
-            padding: '16px',
-            border: '1px solid #ccc',
-            borderRadius: '12px',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-            backgroundColor: '#fff',
-            flex: 1,
-            minWidth: '250px',
-            marginTop: '16px',
+            width: '100%',
+            padding: '10px',
+            backgroundColor: '#e0f7ff',
+            borderRadius: '8px',
+            textAlign: 'center',
+            marginBottom: '20px',
           }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+              KOPLO PARTY MADNESS WITH FEEL KOPLO
+            </h3>
+            <p style={{ margin: '5px 0' }}>
+              <strong>Berakhir:</strong> 02 May 2025 · 20:00 WIB
+            </p>
+            <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+              Rp{totalPrice.toLocaleString()}
+            </p>
+          </div>
+
+          {/* Ticket Quantity Controls and Beli Tiket Button in One Row */}
+          <div style={{
+            width: '100%',
+            padding: '12px',
+            backgroundColor: '#fff',
+            borderRadius: '8px',
+            border: '1px solid #0070f3',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+              <button
+                onClick={handleDecrease}
+                style={{
+                  backgroundColor: '#fff',
+                  border: '1px solid #0070f3',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '1.2rem',
+                  color: '#0070f3',
+                }}
+              >
+                -
+              </button>
+              <span style={{ fontSize: '1.2rem', margin: '0 10px' }}>{quantity}</span>
+              <button
+                onClick={handleIncrease}
+                style={{
+                  backgroundColor: '#fff',
+                  border: '1px solid #0070f3',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '1.2rem',
+                  color: '#0070f3',
+                }}
+              >
+                +
+              </button>
+            </div>
+
+            {/* Beli Tiket Button */}
             <button style={{
               padding: '12px 24px',
               backgroundColor: '#0070f3',
@@ -82,103 +187,13 @@ const BannerCard: React.FC = () => {
               borderRadius: '6px',
               cursor: 'pointer',
               fontWeight: 'bold',
-              width: '100%',
+              width: 'auto',
             }}>
               Beli Tiket
             </button>
           </div>
         </div>
-
-      </div>
-
-      {/* Deskripsi */}
-      <div style={{ padding: '16px', margin: '0 auto', textAlign: 'left', width: '100%' }}>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-          SUPERMUSIC INTIMATE SESSIONS 2025
-        </h2>
-        <p>
-          Superfriends! Supermusic Intimate Sessions kembali hadir di tahun 2025 dengan membawa format baru 'Acoustic Set'. Mulai April hingga Juni 2025, rangkaian acara ini akan dilaksanakan di 25 Kota, menghadirkan 25 Guest Stars serta Local Heroes dari berbagai wilayah di Indonesia. Dengan menyasar kota-kota di Jawa Timur, Jawa Tengah, Jabodetabek, hingga Jawa Barat, event Supermusic Intimate Sessions 2025 ini membawa konsep pertunjukan musik yang lebih hangat dan intim serta menjadikan ruang yang mempertemukan Musisi dan Superfriends secara lebih personal dan bermakna karena INIRASANYASUPER!!! Guest Star : St.Loco Local Heroes : Moccatune, Mighfar Suganda, XGO, Iwakvisual
-        </p>
-
-        {/* Syarat & Ketentuan */}
-        <h3 style={{ fontSize: '1.15rem', fontWeight: 'bold' }}>
-          Syarat & Ketentuan
-        </h3>
-        <ol>
-          <li>1.Pengunjung wajib berusia diatas 18 tahun untuk bisa ke masuk ke acara.</li>
-          <li>2.Registrasi ini termasuk merchandise dan freepass akses datang ke acara SuperMusic Intimate Sessions sesuai dengan kota penyelenggaraan acara yang dipilih.</li>
-          <li>3.E-Voucher akan dikirimkan melalui whatsapp dan email yang di registrasikan, pastikan untuk mengisi semua data yang dibutuhkan pada website registrasi.</li>
-          <li>4.Pengambilan merchandise dan penukaran e-voucher hanya dapat dilakukan di redemption booth sesuai dengan kota penyelenggaraan acara yang dipilih.</li>
-          <li>5.Waktu Penukaran e-voucher dan check in dapat dilakukan di venue sesuai dengan kota penyelenggaraan acara yang dipilih mulai jam 15:00 WIB.</li>
-          <li>6.Kami tidak bertanggung jawab atas penyalahgunaan e-voucher.</li>
-          <li>7.Penyelenggara berhak untuk tidak memberikan izin untuk masuk ke dalam tempat acara apabila syarat-syarat & ketentuan tidak dipenuhi.</li>
-          <li>8.Dilarang melakukan perbuatan dan juga atau pun membawa benda yang melanggar hukum/ peraturan yang berlaku pada saat acara.</li>
-          <li>9.Dilarang Membawa:
-            <ul>
-              <li>Obat Obatan Terlarang</li>
-              <li>Makanan dan Minuman dari luar</li>
-              <li>Senjata Tajam</li>
-              <li>Senjata Api/ Peledak</li>
-              <li>Video Kamera Profesional</li>
-              <li>Laser Pen</li>
-              <li>E Cigarette dan Heat Not Burn Cigarette</li>
-              <li>Produk Tembakau Dengan Kemasan/ Segel Terbuka</li>
-            </ul>
-          </li>
-        </ol>
-
-        {/* Event Review and Rating */}
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-          Review dan Rating
-        </h3>
-
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
-          <span style={{ marginRight: '8px' }}>Rating:</span>
-          {[1, 2, 3, 4, 5].map((star) => (
-            <span
-              key={star}
-              style={{
-                cursor: 'pointer',
-                fontSize: '20px',
-                color: star <= rating ? '#FFD700' : '#ccc',
-              }}
-              onClick={() => handleStarClick(star)}
-            >
-              ★
-            </span>
-          ))}
-        </div>
-
-        <textarea
-          value={reviewText}
-          onChange={handleReviewChange}
-          placeholder="Tulis review Anda..."
-          style={{
-            width: '100%',
-            padding: '12px',
-            borderRadius: '6px',
-            border: '1px solid #ccc',
-            marginBottom: '12px',
-            minHeight: '80px',
-          }}
-        />
-
-        <button
-          onClick={handleReviewSubmit}
-          style={{
-            padding: '12px 24px',
-            backgroundColor: '#0070f3',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            width: '100%',
-          }}
-        >
-          Kirim Review
-        </button>
-      </div>
+      )}
     </div>
   );
 };
