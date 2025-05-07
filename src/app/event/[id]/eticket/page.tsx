@@ -1,5 +1,3 @@
-// pages/voucher.tsx
-
 import React from 'react';
 
 const E_Voucher: React.FC = () => {
@@ -22,7 +20,7 @@ const E_Voucher: React.FC = () => {
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         {/* Logo Loket */}
         <img src="https://media.licdn.com/dms/image/v2/C4D1BAQHw2uZ0K63lCg/company-background_10000/company-background_10000/0/1652770333473/loket_com_cover?e=2147483647&v=beta&t=UBlaHP-AXxqlQXSkokxaLGDrAkR0AapBkYuzMjTh9c4" alt="Loket Logo" style={{ width: '120px' }} />
         <span style={{ fontSize: '20px', fontWeight: 'bold' }}>E-Voucher</span>
@@ -30,22 +28,21 @@ const E_Voucher: React.FC = () => {
 
       {/* Event Details */}
       <div style={{ marginTop: '20px', border: '1px solid #ccc', borderRadius: '8px', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        {/* Event Banner Image (smaller size) */}
-        <img src={voucherData.eventBanner} alt="Event Banner" style={{ width: '40%', borderRadius: '8px', maxHeight: '150px', objectFit: 'cover' }} />
+        {/* Event Banner Image */}
+        <img src={voucherData.eventBanner} alt="Event Banner" style={{ width: '40%', borderRadius: '8px', maxHeight: '150px', objectFit: 'cover', marginRight: '10px' }} />
 
         {/* Event Information */}
         <div style={{ marginLeft: '20px', maxWidth: '50%' }}>
-          <h2>{voucherData.eventTitle}</h2>
-          <p><strong>Lokasi:</strong> {voucherData.eventLocation}</p>
-          <p><strong>Tanggal Event:</strong> {voucherData.eventDate}</p>
+          <h2 style={{ marginBottom: '5px' }}>{voucherData.eventTitle}</h2>
+          <p style={{ margin: '0 0 5px 0' }}><strong>Lokasi:</strong> {voucherData.eventLocation}</p>
+          <p style={{ margin: '0 0 5px 0' }}><strong>Tanggal Event:</strong> {voucherData.eventDate}</p>
         </div>
       </div>
 
-      {/* Informasi Pemesan dalam Kotak Sejajar Horizontal */}
+      {/* Informasi Pemesan */}
       <div style={{ marginTop: '20px', border: '1px solid #ccc', borderRadius: '8px', padding: '10px', display: 'flex', justifyContent: 'space-between' }}>
-        
-        {/* Kolom Kiri (Nama & Kode Tagihan) */}
-        <div style={{ width: '48%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        {/* Left Column (Nama & Kode Tagihan) */}
+        <div style={{ width: '48%' }}>
           <div style={{ marginBottom: '5px' }}>
             <p style={{ margin: '0 0 5px 0' }}><strong>Nama / Name:</strong></p>
             <p style={{ margin: '0 0 5px 0' }}>{voucherData.name}</p>
@@ -57,8 +54,8 @@ const E_Voucher: React.FC = () => {
           </div>
         </div>
 
-        {/* Kolom Kanan (Tanggal Pembelian, Referensi) */}
-        <div style={{ width: '48%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        {/* Right Column (Tanggal Pembelian, Referensi) */}
+        <div style={{ width: '48%' }}>
           <div style={{ marginBottom: '5px' }}>
             <p style={{ margin: '0 0 5px 0' }}><strong>Tanggal Pembelian / Order Date:</strong></p>
             <p style={{ margin: '0 0 5px 0' }}>{voucherData.orderDate}</p>
@@ -71,11 +68,10 @@ const E_Voucher: React.FC = () => {
         </div>
       </div>
 
-      {/* Teks KOPLO PARTY MADNESS WITH FEEL KOPLO dan Barcode di luar kotak */}
+      {/* Bottom Section with Barcode and Event Text */}
       <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ flex: 1 }}>
-          {/* Teks KOPLO PARTY MADNESS WITH FEEL KOPLO */}
-          <p style={{ fontWeight: 'bold' }}>KOPLO PARTY MADNESS WITH FEEL KOPLO</p>
+          <p style={{ fontWeight: 'bold', textAlign: 'left' }}>KOPLO PARTY MADNESS WITH FEEL KOPLO</p>
         </div>
 
         <div style={{ flex: 1, textAlign: 'center' }}>
@@ -84,8 +80,8 @@ const E_Voucher: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <div style={{ marginTop: '20px', fontSize: '12px' }}>
+      {/* Footer Section */}
+      <div style={{ marginTop: '20px', fontSize: '12px', textAlign: 'center' }}>
         <p><strong>Syarat dan Ketentuan:</strong></p>
         <p>Untuk detail lebih lanjut, kunjungi website atau hubungi support.</p>
         <p>Email: <a href={`mailto:${voucherData.supportEmail}`}>{voucherData.supportEmail}</a></p>
